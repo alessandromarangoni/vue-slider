@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <div class="container">
+            <div class="slider-wrapper" tabindex="0">
+
+                <template v-for="(oggetto, i) in oggetti">
+                    <div v-show="i == slideCorrente" class="item">
+                        <img :src="oggetto.image" alt="">
+                        <div class="text">
+                            <h3>{{oggetto.title}}</h3>
+                            <p>{{oggetto.text}}</p>
+                        </div>
+                    </div>
+                </template>
+
+                <div class="thumbs">
+                    <div @click="prossima" class="prev"></div>
+                    <div @click="precedente" class="next"></div>
+
+                    <template v-for="(oggetto, i) in oggetti">
+                        <div :class="(i == slideCorrente) ? `thumb active` : `thumb`">
+                            <img :src="oggetto.image" alt="">
+                        </div>
+                    </template>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
