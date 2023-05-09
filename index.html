@@ -18,6 +18,7 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <template v-for="(oggetto, i) in oggetti">
+
                     <div v-show="i == slideCorrente" class="item">
                         <img :src="oggetto.image" alt="">
                         <div class="text">
@@ -25,6 +26,7 @@
                             <p>{{oggetto.text}}</p>
                         </div>
                     </div>
+                    
                 </template>
 
                 <div class="thumbs">
@@ -32,9 +34,11 @@
                     <div @click="precedente" class="next"></div>
 
                     <template v-for="(oggetto, i) in oggetti">
+
                         <div :class="(i == slideCorrente) ? `thumb active` : `thumb`">
                             <img :src="oggetto.image" alt="">
                         </div>
+
                     </template>
                     </div>
                 </div>
