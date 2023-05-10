@@ -16,18 +16,19 @@
 
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
+<!--      commento quello fatto ieri per avere una versione (migliore) alternativa. Va rimosso il div item attivo ora per funzionare
+                <template v-for="(oggetto, i) in oggetti"> -->
+                    <!-- <div v-show="i == slideCorrente" class="item"> -->
 
-                <template v-for="(oggetto, i) in oggetti">
-
-                    <div v-show="i == slideCorrente" class="item">
-                        <img :src="oggetto.image" alt="">
+                        <div  class="item">
+                        <img :src="oggetti[slideCorrente].image" :alt="oggetti[slideCorrente].title">
                         <div class="text">
-                            <h3>{{oggetto.title}}</h3>
-                            <p>{{oggetto.text}}</p>
+                            <h3>{{oggetti[slideCorrente].title}}</h3>
+                            <p>{{oggetti[slideCorrente].text}}</p>
                         </div>
                     </div>
-                    
-                </template>
+
+                <!-- </template> -->
 
                 <div class="thumbs">
                     <div @click="prossima" class="prev"></div>
@@ -36,7 +37,7 @@
                     <template v-for="(oggetto, i) in oggetti">
 
                         <div :class="(i == slideCorrente) ? `thumb active` : `thumb`">
-                            <img :src="oggetto.image" alt="">
+                            <img @click="cambioAlClick(i)" :src="oggetto.image" alt="">
                         </div>
 
                     </template>
@@ -45,6 +46,8 @@
 
             </div>
         </div>
+
+        
 
     </div>
     <script src="./js/main.js"></script>

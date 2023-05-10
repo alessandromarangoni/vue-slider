@@ -44,8 +44,12 @@ createApp({
         }
         else{
             this.slideCorrente= this.oggetti.length-1;
+            console.log(this.oggetti[1].image)
         }
-},
+    },
+    cambioAlClick(i){
+        this.slideCorrente=i;
+    }
     }
 }).mount('#app')
 
